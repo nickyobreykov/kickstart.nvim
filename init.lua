@@ -135,7 +135,7 @@ vim.opt.signcolumn = 'yes'
 vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
-vim.opt.timeoutlen = 0
+vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
@@ -191,6 +191,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page and center' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page center' })
+
+-- Fugitive keymaps
+vim.keymap.set('n', '<leader>gs', '<cmd>Git<CR>', { desc = 'Open [G]it status' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -921,7 +924,7 @@ require('lazy').setup({
             local diff = MiniStatusline.section_diff { trunc_width = 75 }
             -- local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
             -- local filename = MiniStatusline.section_filename { trunc_width = 140 }
-            local filename = '%t%m%r'
+            local filename = '%f%m%r'
 
             -- local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
             local location = MiniStatusline.section_location { trunc_width = 75 }
