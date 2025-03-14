@@ -193,7 +193,7 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page and cent
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page center' })
 
 -- Fugitive keymaps
-vim.keymap.set('n', '<leader>gs', '<cmd>Git<CR>', { desc = 'Open [G]it status' })
+vim.keymap.set('n', '<leader>gg', '<cmd>Git<CR>', { desc = 'Open [G]it status' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -376,7 +376,11 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          buffers = {
+            sort_mru = true,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
