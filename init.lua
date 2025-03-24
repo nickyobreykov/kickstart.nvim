@@ -189,8 +189,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page and center' })
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page center' })
+vim.keymap.set('n', '<C-u>', '15kzz', { desc = 'Scroll up half a page and center' })
+vim.keymap.set('n', '<C-d>', '15jzz', { desc = 'Scroll down half a page center' })
+
+vim.keymap.set('n', '<C-q>', '<cmd>q<CR>', { desc = 'Quit' })
 
 -- Fugitive keymaps
 vim.keymap.set('n', '<leader>gg', '<cmd>Git<CR>', { desc = 'Open [G]it status' })
