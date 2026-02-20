@@ -395,6 +395,13 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        defaults = {
+          path_display = { 'filename_first', 'truncate' },
+          layout_config = {
+            width = 0.85,
+            preview_width = 0.35,
+          },
+        },
         pickers = {
           buffers = {
             sort_mru = true,
@@ -403,6 +410,12 @@ require('lazy').setup({
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
+          },
+          fzf = {
+            fuzzy = true, -- false = exact matching
+            override_generic_sorter = true, -- use fzf algorithm for everything
+            override_file_sorter = true, -- use fzf for file lists
+            case_mode = 'smart_case', -- or "ignore_case" / "respect_case"
           },
         },
       }
