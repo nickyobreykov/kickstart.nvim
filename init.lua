@@ -90,6 +90,16 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Start with empty buffer instead of netrw when opening a directory
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1 then
+      vim.cmd('bdelete')
+      vim.cmd('enew')
+    end
+  end,
+})
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
